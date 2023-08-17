@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task | Cart - add remove</title>
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="custom.css">
+
+    <!-- jquery -->
+    <!-- <script src="jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <section class="add-to-cart-item">
+        <div class="container">
+            <!-- TAB FOR COCOLATE SELECTION  -->
+            <div class="tab" id="myTab">
+                <button class="tablinks active" onclick="openTab('milk-chocolate')" onchange="tabCompare(this)">Milk Chocolate (<span class="total-select" name="4" id="total-milk-chocolate">0</span>) </button>
+                <button class="tablinks tabsecond" onclick="openTab('dark-chocolate')" onchange="tabCompare(this)" id="dark-chocolate-id">Dark Chocolate (<span class="total-select2" id="total-dark-chocolate">0</span>)</button>
+            </div>
+            <!-- MILK-CHOCOLATE  -->
+            <div id="milk-chocolate" class="tabcontent">
+                <input type="hidden" class="tabData2">
+                <div class="chocolate-items chocolate-items1" id="milk-chocolate-item1">
+                    <!-- Chocolate Iamge  - MILK-CHOCOLATE-->
+                    <div class="chocolate-image">
+                        <img src="imges/choclate-1.jpg" alt="">
+                        <span class="cart-item" min="0" max="8" id="cartItem1">0</span>
+                    </div>
+                    <!-- Chocolate Content  - MILK-CHOCOLATE-->
+                    <div class="chocolate-content ">
+                        <p>Choclate - 1</p>
+                        <button value="Select" class="chocolate-select-1">Select</button>
+                        <!-- Select Chocolate - 1 - MILK-CHOCOLATE-->
+                        <div class="milk-chocolate-item-select-1">
+                            <button type="submit" value="+" onclick="minusoperation(1)" class="minus">-</button>
+                            <input type="number" class="numbers" id="number1" name="1" min="0" max="8" onchange="milkInput(this)" data-prevvalue=0 value="0" disabled/>
+                            <button type="submit" value="+" onclick="plusoperation(1)" class="plus" id="plus1">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chocolate-items chocolate-items2" id="milk-chocolate-item2">
+                    <!-- Chocolate Iamge  - MILK-CHOCOLATE-->
+                    <div class="chocolate-image">
+                        <img src="imges/choclate-2.jpg" alt="">
+                        <span class="cart-item" min="0" max="8" id="cartItem2">0</span>
+                    </div>
+                    <!-- Chocolate Content  - MILK-CHOCOLATE-->
+                    <div class="chocolate-content">
+                        <p>Choclate - 2</p>
+                        <button type="submit" value="Select" class="chocolate-select-2">Select</button>
+                        <!-- Select Chocolate - 2 - MILK-CHOCOLATE-->
+                        <div class="milk-chocolate-item-select-2">
+                            <button type="submit" value="+" onclick="minusoperation(2)" class="minus">-</button>
+                            <input type="number" class="numbers" id="number2" name="2" min="0" max="8" onchange="milkInput(this)" data-prevvalue=0 value="0" disabled/>
+                            <button type="submit" value="+" onclick="plusoperation(2)" class="plus" id="plus2">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chocolate-items chocolate-items3" id="milk-chocolate-item3">
+                    <!-- Chocolate Iamge  - MILK-CHOCOLATE-->
+                    <div class="chocolate-image">
+                        <img src="imges/milk-1.jpg" alt="">
+                        <span class="cart-item" min="0" max="8" id="cartItem3">0</span>
+                    </div>
+                    <!-- Chocolate Content  - MILK-CHOCOLATE-->
+                    <div class="chocolate-content">
+                        <p>Choclate - 3</p>
+                        <button type="submit" value="Select" class="chocolate-select-3">Select</button>
+                        <!-- Select Chocolate - 3 - MILK-CHOCOLATE-->
+                        <div class="milk-chocolate-item-select-3">
+                            <button type="submit" value="+" onclick="minusoperation(3)" class="minus">-</button>
+                            <input type="number" class="numbers" id="number3" name="3" min="0" max="8" onchange="milkInput(this)" data-prevvalue=0 value="0" disabled/>
+                            <button type="submit" value="+" onclick="plusoperation(3)" class="plus" id="plus3">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DARK-CHOCOLATE  -->
+            <div id="dark-chocolate" class="tabcontent">
+                <input type="hidden" class="tabData">
+
+                <div class="chocolate-items dark-chocolate-items">
+                    <!-- Chocolate Iamge - DARK-CHOCOLATE -->
+                    <div class="chocolate-image">
+                        <img src="imges/dark-1.jpg" alt="">
+                        <span class="cart-item" id="darkItem1">0</span>
+                    </div>
+                    <!-- Chocolate Content  - DARK-CHOCOLATE-->
+                    <div class="chocolate-content">
+                        <p>Choclate - 1</p>
+                        <button value="Select" class="dark-chocolate-select-1">Select</button>
+                        <!-- Select Chocolate - 1  - DARK-CHOCOLATE-->
+                        <div class="dark-chocolate-item-select-1">
+                            <button type="submit" value="+" onclick="minusop(1)" class="minus">-</button>
+                            <input type="number" class="numbers2" id="add1" min="0" max="8" onchange="darkInput(this)" data-prevvalue=0 value="0" disabled/>
+                            <button type="submit" value="+" onclick="plusop(1)" class="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chocolate-items dark-chocolate-items">
+                    <!-- Chocolate Iamge  - DARK-CHOCOLATE-->
+                    <div class="chocolate-image">
+                        <img src="imges/dark-2.jpg" alt="">
+                        <span class="cart-item" id="darkItem2">0</span>
+                    </div>
+                    <!-- Chocolate Content  - DARK-CHOCOLATE-->
+                    <div class="chocolate-content">
+                        <p>Choclate - 2</p>
+                        <button type="submit" value="Select" class="dark-chocolate-select-2">Select</button>
+                        <!-- Select Chocolate - 2 - DARK-CHOCOLATE-->
+                        <div class="dark-chocolate-item-select-2">
+                            <button type="submit" value="+" onclick="minusop(2)" class="minus">-</button>
+                            <input type="number" class="numbers2" id="add2" min="0" max="8" onchange="darkInput(this)" data-prevvalue=0 value="0" disabled/>
+                            <button type="submit" value="+" onclick="plusop(2)" class="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chocolate-items dark-chocolate-items">
+                    <!-- Chocolate Iamge  - DARK-CHOCOLATE-->
+                    <div class="chocolate-image">
+                        <img src="imges/dark-3.jpg" alt="">
+                        <span class="cart-item-3" id="darkItem3">0</span>
+                    </div>
+                    <!-- Chocolate Content  - DARK-CHOCOLATE-->
+                    <div class="chocolate-content">
+                        <p>Choclate - 3</p>
+                        <button type="submit" value="Select" class="dark-chocolate-select-3">Select</button>
+                        <!-- Select Chocolate - 3 - DARK-CHOCOLATE-->
+                        <div class="dark-chocolate-item-select-3">
+                            <button type="submit" value="+" onclick="minusop(3)" class="minus">-</button>
+                            <input type="number" class="numbers2" id="add3" min="0" max="8" onchange="darkInput(this)" data-prevvalue=0 value="0" disabled/>
+                            <button type="submit" value="+" onclick="plusop(3)" class="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<!-- Coustom JS -->
+
+<script src="coustom.js"></script>
+<script>
+    // $("input[type=number]").change(function() {
+    //     var val = 0;
+    //     //loop through each inputs
+    //     $("input[type=number]").each(function() {
+    //             //sum values
+    //             val += (isNaN(parseInt($(this).val()))) ? 0 : parseInt($(this).val());
+    //         })
+    //         //put in span
+    //     $(".total-select").text(val);
+    // });
+</script>
+
+</html>
